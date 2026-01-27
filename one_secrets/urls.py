@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-#связывает адрес в браузере с функцией/классом view
+# URL list, связывает адрес в браузере с функцией/классом view
 
 #secret_url
 urlpatterns = [
