@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 
+# Доменная модель - код, отвечающий: что можно и что нельзя делать с сущностью
 class Secret(models.Model):
     """
     Секрет, который можно прочитать один раз
