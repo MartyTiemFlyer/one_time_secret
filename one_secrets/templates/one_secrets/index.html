@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>One-Time Secret</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'one_secrets/style.css' %}">
 
 </head>
@@ -16,7 +16,9 @@
 
             <nav class="menu">
                 <button>Профиль</button>
-                <button>Найти секрет</button>
+
+                <button id="show-uuid">Посмотреть секрет</button>
+
                 <button>Общедоступные</button>
             </nav>
         </aside>
@@ -31,8 +33,15 @@
             <div class="placeholder">
                 тут позже будет форма / текст / магия ✨
             </div>
-        </main>
 
+            <div id="uuid-field" class="secret-card">
+                <input type="text" id="uuid-input" placeholder="Введите UUID">
+                <button id="get-secret">Получить секрет</button>
+                <p id="secret-output"></p>
+            </div>
+        </main>
     </div>
+
+<script src="{% static 'one_secrets/main.js' %}"></script>
 </body>
 </html>
