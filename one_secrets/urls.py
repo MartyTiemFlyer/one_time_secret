@@ -5,5 +5,6 @@ from . import views
 
 #secret_url
 urlpatterns = [
-    path('<uuid:uuid>/', views.object_detail, name='object_detail'),
+    path("secret/<uuid:uuid>/", views.secret_page, name="secret_page"),
+
 ]

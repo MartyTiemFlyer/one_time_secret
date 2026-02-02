@@ -1,0 +1,79 @@
+/* базовый сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* фон и шрифт */
+body {
+    height: 100vh;
+    background: #1b102a;
+    color: #f3eaff;
+    font-family: "Courier New", monospace;
+}
+
+/* общий контейнер */
+.app {
+    display: flex;
+    height: 100%;
+}
+
+/* левая панель */
+.sidebar {
+    width: 220px;
+    background: #261640;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* иконка */
+.logo {
+    font-size: 32px;
+    text-align: center;
+}
+
+/* меню */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu button {
+    background: transparent;
+    border: 2px solid #9d7cff;
+    color: #f3eaff;
+    padding: 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.menu button:hover {
+    background: #9d7cff;
+    color: #1b102a;
+}
+
+/* центральная часть */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+/* заголовок — слегка пиксельный эффект */
+.content h1 {
+    letter-spacing: 3px;
+}
+
+/* место под будущие штуки */
+.placeholder {
+    border: 2px dashed #9d7cff;
+    padding: 24px;
+    opacity: 0.8;
+}

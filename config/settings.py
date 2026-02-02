@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'one_secrets',
 
     'rest_framework',
+
 ]
 
 MIDDLEWARE = [
