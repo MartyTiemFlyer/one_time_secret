@@ -6,10 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("uuid-input");
 
   showBtn.addEventListener("click", () => {
-  card.classList.toggle("active");
-  });
-
-    requestAnimationFrame(() => card.classList.add("show"));
+    card.classList.toggle("active");
   });
 
   getBtn.addEventListener("click", async () => {
@@ -31,4 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
       output.textContent = "Ошибка сети";
     }
   });
+});
+const overlay = document.getElementById("overlay");
+
+showBtn.addEventListener("click", () => {
+  card.classList.add("active");
+  overlay.classList.add("active");
+});
+
+overlay.addEventListener("click", () => {
+  card.classList.remove("active");
+  overlay.classList.remove("active");
 });
