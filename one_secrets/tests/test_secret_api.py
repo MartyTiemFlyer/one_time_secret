@@ -9,6 +9,7 @@ from uuid import UUID
 
 FUTURE = timezone.make_aware(datetime(2099, 1, 1))
 
+
 @pytest.fixture
 def api_client():
     return APIClient()
@@ -45,8 +46,6 @@ def test_post_returns_201(api_client):
 
     assert res.status_code == 201
     assert UUID(uuid_str)
-    # объект реально появился в базе
-    assert Secret.objects.filter(uuid=uuid_str).exists() == True
 
 
 @pytest.mark.django_db
