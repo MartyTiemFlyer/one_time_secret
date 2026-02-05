@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 class SecretCreateSerializer(serializers.ModelSerializer):
-    """ModelSerializer - когда Поля сериализатора = поля модели"""
+    """ModelSerializer - Поля сериализатора = поля модели"""
     class Meta:
         model = Secret
         fields = ["secret", "expires_at"]

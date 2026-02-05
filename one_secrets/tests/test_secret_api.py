@@ -7,7 +7,7 @@ from api.views import SecretReadAPIView
 from rest_framework.test import APIClient
 from uuid import UUID
 
-FUTURE = timezone.make_aware(datetime(2099, 1, 1))
+FUTURE = (timezone.now() + timedelta(days=1)).isoformat()
 
 
 @pytest.fixture
@@ -81,5 +81,5 @@ def test_two_identical_secrets_have_different_uuid(api_client):
     UUID(uuid1)
     UUID(uuid2)
 
-    # и главное — что они разные
+    # и главное разные
     assert uuid1 != uuid2
