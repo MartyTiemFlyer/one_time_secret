@@ -1,0 +1,33 @@
+services:
+  db:       # имена как в settings.py
+    image: postgres:16
+    environment:
+      POSTGRES_DB: one_secret_db
+      POSTGRES_USER: one_secret_user
+      POSTGRES_PASSWORD: 123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U one_secret_user -d one_secret_db" ]
+      interval: 2s
+      timeout: 2s
+      retries: 2
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/secret_app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/secret_db
+      - DEBUG=True
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

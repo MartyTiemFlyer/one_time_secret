@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgres://postgres:postgres@localhost:5432/secret_db')
 
 DATABASES = {
     'default': {
@@ -80,7 +81,7 @@ DATABASES = {
         'NAME': 'one_secret_db',
         'USER': 'one_secret_user',
         'PASSWORD': '123',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
