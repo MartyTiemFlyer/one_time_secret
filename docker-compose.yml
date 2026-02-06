@@ -23,7 +23,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/secret_db
+      - DATABASE_URL=postgres://one_secret_user:123@db:5432/one_secret_db
       - DEBUG=True
     depends_on:
       db:

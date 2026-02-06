@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(`/api/secrets/${uuid}/`);
       if (res.ok) {
         const data = await res.json();
-        output.textContent = data.text;
+        output.textContent = data.secret;
       } else {
         output.textContent = "Секрет недоступен";
       }

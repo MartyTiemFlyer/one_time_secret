@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.utils import timezone
+from rest_framework.exceptions import ValidationError
+
 from one_secrets.models import Secret
 
 
@@ -14,3 +17,7 @@ class SecretAdmin(admin.ModelAdmin):
         if obj:  # объект уже существует --> change view
             return ("secret",)
         return ()
+
+    def clean(self):
+        if self.expires_at <= timezone.now():
+            raise ValidationError("expires_at must be in the future")
